@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Energy Air 2018 Game Bot 
+// @name         Energy Air 2018 Game Bot
 // @namespace    https://github.com/ggmanugg/energyair_bot
 // @version      0.1
 // @description  Win tickets for the Energy Air 2018 automatically
@@ -29,7 +29,7 @@ const questions = {
     "Mit welchem Preis wurde der Nachwuchsstar Luna Wedler dieses Jahr ausgezeichnet?":"Shootingstar Berlinale 2018",
     "Wer eröffnete das erste Energy Air?":"Bastian Baker",
     "Wie schwer ist die Energy Air Bühne?":"1000 Tonnen",
-    "Wo findet das Energy Air statt?":"Stade de Suisse (Bern)",
+    "Wo findet das Energy Air statt?":"Stade de Suisse, Bern",
     "Wer stand am letzten Energy Air als Überraschungsgast auf der Bühne?":"Bastian Baker",
     "Wann ist der offizielle Filmstart von DAS SCHÖNSTE MÄDCHEN DER WELT in den Schweizer Kinos?":"6. September 2018",
     "Energy Air Tickets kann man…":"gewinnen",
@@ -40,7 +40,6 @@ const questions = {
     "Wie viele Konfetti-Kanonen gibt es am Energy Air?":"40",
     "Was verlangte Nena am Energy Air 2016?":"Eine komplett weisse Garderobe",
     "Welche amerikanische Band trat am Energy Air 2016 auf?":"One Republic",
-    "Wie reiste Kygo im Jahr 2015 ans Energy Air?":"Im Privatchat",
     "Energy Air ist der einzige Energy Event, …":"…für den man Tickets nur gewinnen kann.",
     "Welche Farbe haben die Haare des Social Media Stars Julia Beautx im Film?":"Blond",
     "Woher kommt Energy Air Act Max Giesinger?":"Deutschland",
@@ -56,7 +55,22 @@ const questions = {
     "Welcher Act interviewte vor dem letzten Energy Air das Publikum?":"Baba Shrimps",
     "Welcher berühmte DJ-Act stand 2017 auf der Bühne des Energy Air?":"Dimitri Vegas & Like Mike",
     "Auf welcher Social-Media-Plattform kann man keine Energy Air Tickets gewinnen?":"Twitter",
-    "Wie breit ist die Energy Air Bühne?":"70 Meter"
+    "Wie breit ist die Energy Air Bühne?":"70 Meter",
+    "Auf welchem Portal kann ich zwei Kinotickets für den Film BAD SPIES gewinnen?":"Energy Air – The Game",
+    "Aus welchem Film ist Mila Kunis bekannt?":"Bad Moms",
+    "Was verstecken Audrey und Morgan vor der CIA?":"Einen USB-Stick mit vertraulichen Informationen",
+    "Ab wann ist der Film BAD SPIES in den Schweizer Kinos zu sehen?":"Ab 30. August 2018",
+    "Welchen Song performte Dodo am Energy Air mit den Überraschungsgästen Lo & Leduc?":"Jung verdammt",
+    "Wo erfährst du immer die neusten Infos rund um das Energy Air?":"im Radio, auf der Website und über Social Media",
+    "Was ist Audreys Lieblingsbeschäftigung?":"Gamen",
+    "Wie heisst der aktuelle Sommerhit von Energy Air Act Alvaro Soler?":"La Cintura",
+    "In welcher Hauptstadt Europas machen die BAD SPIES keinen Halt?":"Rom",
+    "Wer war der letzte Act am Energy Air 2017?":"Kodaline",
+    "Welches Agentenduo gibt ab dem 30. August so richtig Gas?":"Mila Kunis und Kate McKinnon",
+    "Wie reiste Kygo im Jahr 2015 ans Energy Air?":"Privatjet",
+    "Wann fand das Energy Air zum ersten Mal statt?":"2014",
+    "Wessen Ex-Freund ist ein internationaler Spion?":"Der Ex von Audrey (Mila Kunis)",
+    "Mit welchem Hollywoodstar ist Mila Kunis verheiratet?":"Ashton Kutscher"
 }
 
 function titleIs (title, selector = 'h2') {
