@@ -70,7 +70,7 @@ const questions = {
     "Wie reiste Kygo im Jahr 2015 ans Energy Air?":"Privatjet",
     "Wann fand das Energy Air zum ersten Mal statt?":"2014",
     "Wessen Ex-Freund ist ein internationaler Spion?":"Der Ex von Audrey (Mila Kunis)",
-    "Mit welchem Hollywoodstar ist Mila Kunis verheiratet?":"Ashton Kutscher",
+    "Mit welchem Hollywoodstar ist Mila Kunis verheiratet?":"Ashton Kutcher",
     "Wo hat Audrey den USB-Stick versteckt?":"Unter der Zunge"
 }
 
