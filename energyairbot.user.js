@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Energy Air 2018 Game Bot
-// @namespace    https://github.com/ggmanugg/energyair_bot
+// @namespace    https://github.com/ggmanugg/energyair_bot/blob/master/energyairbot.user.js
 // @version      0.1
 // @description  Win tickets for the Energy Air 2018 automatically
 // @author       ggmanugg: https://github.com/ggmanugg
