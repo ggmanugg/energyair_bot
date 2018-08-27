@@ -95,7 +95,7 @@ function answerQuestion () {
             $(el).children('input').trigger('click')
         }
     })
-    setTimeout(nextQuestion, 800)
+    setTimeout(nextQuestion, 1200) //speed
 }
 
 function makeAction () {
