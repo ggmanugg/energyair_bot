@@ -1,4 +1,4 @@
-# Energy Air 2018 Game Bot
+# Energy Air 2019 Game Bot
 
 Use the Tampermonkey Addon for Google Chrome: https://tampermonkey.net/
 
