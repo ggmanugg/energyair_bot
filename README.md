@@ -8,6 +8,6 @@ PS. Schau mal was Session Box ist , damit kannst du mit mehreren Handy-Nr. gleic
 
 Thats it :)
 
-Tahnks to @lehmanner\
+Thanks to @lehmanner for the question update\
 
 Update: Seit diesem Jahr findet eine abgeänderte SMS-Verifizierung beim  Game statt.. Schaut für eine verbesserete und vollautomatische Version des Bots bei [@zeveos](https://github.com/zeveos/) vorbei.
