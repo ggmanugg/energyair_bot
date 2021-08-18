@@ -1,100 +1,120 @@
 // ==UserScript==
-// @name         Energy Air 2019 Game Bot
+// @name         Energy Air 2021 Game Bot
 // @namespace    https://github.com/ggmanugg/energyair_bot/blob/master/energyairbot.user.js
 // @version      0.2
 // @description  Win tickets for the Energy Air 2019 automatically
 // @author       ggmanugg: https://github.com/ggmanugg
-// @match        *game.energy.ch/*
+// @match        game.energy.ch/
 // @run-at       document-end
 // @grant        none
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js
 // ==/UserScript==
+$(document).ready(function() {
 
+    const questions = {
+        "WELCHEN KLEIDUNGSSTIL VERFOLGT TALLY WEIJL GRUNDSÄTZLICH?":"Just in time (voll im Trend)",
+        "MUSIKGRÖSSEN AUS WIE VIELEN LÄNDERN WAREN AM ENERGY AIR 2019 DABEI?":"Aus 7 Ländern",
+        "WIE HEISST DER OFFIZIELLE INSTAGRAM-ACCOUNT DES ENERGY AIR?":"@energyair_official",
+        "WOMIT ERSCHIENEN DIE ENERGY MEIN MORGEN MODERATOREN MOSER UND SCHELKER AUF DER ENERGY AIR BÜHNE 2019?":"Mit Spielzeug-Pferden",
+        "MIT WELCHER ZUSATZOPTION HAST DU DIE MÖGLICHKEIT, DIREKT VOR DER BÜHNE ZU STEHEN?":"XTRA Circle",
+        "WELCHE STADT GEHÖRT SEIT AUGUST AUCH ZUR ENERGY FAMILIE UND WIRD AM ENERGY AIR VERTRETEN SEIN?":"Luzern",
+        "MIT WELCHEM AUFBLASBAREN TIER KONNTEN ZWEI AUSERWÄHLTE AM LETZTEN ENERGY AIR ÜBER DIE GANZE MEUTE CROWDSURFEN?":"Einhorn",
+        "IN WELCHEN FARBEN TRITT DAS ENERGY AIR LOGO JÄHRLICH FÜR DAS SOMMERFINALE AUF?":"Blau und Weiss",
+        "WAS PASSIERT, WENN ES AM ENERGY AIR REGNET?":"Der Event findet trotzdem statt",
+        "WELCHER KÜNSTLER MUSSTE AM LETZTEN ENERGY AIR BACKSTAGE EINEN PART AUS DEM DIALEKTRAPSONG VON SANDRO VORRAPPEN?":"Stress",
+        "IN WELCHEM SCHWEIZER KANTON ERÖFFNETE TALLY WEIJL 1987 DEN ERSTEN STORE?":"Fribourg",
+        "NACH WELCHEM KRITERIUM WÄHLT DAS ENERGY TEAM DIE ACTS FÜR DAS ENERGY AIR AUS?":"Musiker*innen aus der aktuellen Energy Playlist",
+        "IN WIE VIELEN LÄNDERN IST DAS KLEIDERGESCHÄFT TALLY WEIJL VERTRETEN?":"In 39 Ländern",
+        "WIE KANNST DU DEINE GEWINNCHANCEN BEI TICKETVERLOSUNGEN FÜR ENERGY EVENTS VERDOPPELN?":"Mit einer Energy One Membership",
+        "WIE ALT MUSS MAN SEIN, UM OHNE ERWACHSENE BEGLEITUNG AM ENERGY AIR TEILZUNEHMEN?":"14 Jahre",
+        "WELCHE MUSIKERIN WURDE AM ENERGY AIR 2018 VON EINER 9-JÄHRIGE BESUCHERIN AUF DER BÜHNE GECOVERT?":"Namika",
+        "WANN IST DIE TICKETVERLOSUNG FÜRS ENERGY AIR 2021 GESTARTET?":"Am 2. August 2021",
+        "WAS IST DAS PERFEKTE OPENAIR-OUTFIT?":"Egal, hauptsache du kannst darin tanzen",
+        "WAS WAR DAS ERSTE, WAS KÜNSTLER KNACKEBOUL NACH SEINEM AUFTRITT 2014 BACKSTAGE GEMACHT HAT?":"Mit seinem Mami ein kühles Bier getrunken",
+        "WELCHER ACT WAR NOCH NIE AN EINEM ENERGY AIR DABEI?":"Cro",
+        "WIE HEISST DIE INITIATIVE FÜR MEHR RESPEKT IM INTERNET, WELCHE SWISSCOM MIT ENERGY LANCIERT HAT UND AM ENERGY AIR IHREN GROSSEN HÖHEPUNKT FEIERT?":"Mute the Hate",
+        "WIE LANGE DAUERTE DAS ENERGY AIR 2019?":"5 1/2 Stunden",
+        "WO KANNST DU, UNTER ANDEREM, ENERGY AIR TICKETS GEWINNEN?":"Am Sender bei Radio Energy",
+        "WAS FOLGT AM DIESJÄHRIGEN ENERGY AIR ALS KRÖNENDER ABSCHLUSS?":"Aftershowparty",
+        "WIE WIRD TALLY WEIJL AUSGESPROCHEN?":"Talli Weil",
+        "WER WAR DER ALLERERSTE ACT IN DER GESCHICHTE DES ENERGY AIR?":"Bastian Baker",
+        "WELCHES SCHWEIZER DJ-DUO SORGTE AM ENERGY AIR 2019 ZU BEGINN FÜR REICHLICH STIMMUNG?":"Averdeck",
+        "VON WELCHER MARKE WAR DAS MOTORRAD, MIT DEM LOCO ESCRITO AM LETZTEN ENERGY AIR ÜBER DIE BÜHNE FUHR?":"Harley-Davidson",
+        "MIT WELCHEM ESC-HIT ROCKTE LUCA HÄNNI AM LETZTEN ENERGY AIR DIE BÜHNE?":"Dirty Dancin'",
+        "IN WELCHER LOCATION FINDET DAS ENERGY AIR 2021 UNTER FREIEM HIMMEL STATT?":"Stade de Suisse Wankdorf",
+        "WELCHE ZWEI ENERGY KULTFIGUREN MISCHTEN DAS ENERGY AIR 2017 RICHTIG AUF?":"Tinu &amp; Dänu",
+        "UNTER WELCHEM MOTTO FEIERN WIR AM 4. SEPTEMBER 2021 DAS ENERGY AIR?":"We are back.",
+        "IN WELCHER BELIEBTEN SERIE WAR TALLY WEIJL ZU SEHEN?":"Gossip Girl",
+        "WELCHER ACT FEIERTE AM LETZTEN ENERGY AIR MIT EINEM NEUEN SONG EINE WELTPREMIERE?":"Aloe Blacc",
+        "WER WAR DER ÜBERRASCHUNGSACT AM ENERGY AIR 2018?":"Lo &amp; Leduc",
+        "WIE HEISST DIE TRAM- UND BUSHALTESTELLE, WELCHE SICH DIREKT NEBEN DEM STADION WANKDORF BEFINDET?":"Wankdorf Center"
+    }
 
-const questions = {
-	"WELCHE FUSSBALLMANNSCHAFT IST IM STADE DE SUISSE ZUHAUSE?":"BSC Young Boys",
-	"WANN BEGINNT DAS ENERGY AIR 2019?":"Um 17 Uhr",
-	"AUF WELCHER SOCIAL-MEDIA-PLATTFORM KANN MAN KEINE ENERGY AIR TICKETS GEWINNEN?":"Twitter",
-	"WO FINDET DAS ENERGY AIR STATT?":"Stade de Suisse, Bern",
-	"ENERGY AIR TICKETS KANN MAN…":"gewinnen",
-	"WELCHE DJ-ACTS STANDEN 2018 AUF DER BÜHNE DES ENERGY AIR?":"Averdeck",
-	"DIE WIEVIELTE ENERGY AIR AUSGABE FINDET DIESES JAHR STATT?":"Die sechste",
-	"WAS VERLANGTE NENA AM ENERGY AIR 2016?":"Eine komplett weisse Garderobe",
-	"WELCHER DIESER ACTS HATTE EINEN AUFTRITT AM ENERGY AIR 2018?":"Alvaro Soler",
-	"ENERGY AIR IST DER EINZIGE ENERGY EVENT, …":"...für den man Tickets nur gewinnen kann.",
-	"WO ERFÄHRST DU IMMER DIE NEUSTEN INFOS RUND UM DAS ENERGY AIR?":"im Radio, auf der Website und über Social Media",
-	"WER ERÖFFNETE DAS ERSTE ENERGY AIR?":"Bastian Baker",
-	"WER ERÖFFNETE DAS ERSTE ENERGY AIR?":"Bastian Baker",
-	"MIT WELCHEM DIESER TICKETS GENIESST DU DIE BESTE SICHT ZUR ENERGY AIR BÜHNE?":"XTRA-Circle",
-	"WER WAR DER LETZTE ACT AM ENERGY AIR 2018?":'Lo &amp; Leduc',
-	"WIE VIELE ENERGY AIR TICKETS WERDEN VERLOST?":"40’000",
-	"AUF WELCHEM WEG KANN MAN KEINE ENERGY AIR TICKETS GEWINNEN?":"E-Mail",
-	"WAS PASSIERT, WENN ES AM EVENTTAG REGNET?":"Energy Air findet trotzdem statt",
-	"WIE VIELE KONFETTI-KANONEN GIBT ES AM ENERGY AIR?":"40",
-	"WIE REISTE KYGO IM JAHR 2015 ANS ENERGY AIR?":"Im Privatjet",
-	"WANN FINDET DAS ENERGY AIR 2019 STATT?":"7. September 2019",
-	"WIE VIELE ACTS WAREN BEIM LETZTEN ENERGY AIR DABEI?":"15",
-	"WIE VIELE SPOTLIGHTS GIBT ES AM ENERGY AIR?":"250",
-	"WANN FAND DAS ENERGY AIR ZUM ERSTEN MAL STATT?":"2014",
-	"WEN NAHM KNACKEBOUL AM ENERGY AIR 2014 MIT BACKSTAGE?":"Sein Mami",
-	"WIE BREIT IST DIE ENERGY AIR BÜHNE?":"70 Meter",
-	"WIE SCHWER IST DIE ENERGY AIR BÜHNE?":"450 Tonnen",
-	"WIE VIELE MITARBEITER SIND AM ENERGY AIR IM EINSATZ?":"1000",
-	"WELCHE AMERIKANISCHE BAND TRAT AM ENERGY AIR 2016 AUF?":"Maroon 5"
-}
+    function randomNumber () {
+        return Math.floor(Math.random() * (1000 - 750 + 1)) + 1000;
+    }
 
-function titleIs (title, selector = 'h1') {
-	return document.getElementsByTagName(selector)[1].textContent === title
-}
-
-function currentQuestion () {
-	if ($('h3.question-text').html() != null){
-		return $('h3.question-text').html().toUpperCase()
-	}
-}
-
-function nextQuestion () {
-    $('button#next-question').trigger('click')
-    setTimeout(makeAction, 200)
-}
-
-function answerQuestion () {
-    let curr = currentQuestion()
-    console.log(curr, questions[curr])
-    $('#answers .answer-wrapper').each((i, el) => {
-        if ($(el).children('label').html() === questions[curr]) {
-            $(el).children('input').trigger('click')
+    function currentQuestion () {
+        if ($('h3.question-text').html() != null){
+            return $('h3.question-text').html().toUpperCase()
         }
-    })
-    setTimeout(nextQuestion, 200) //speed
-}
+    }
 
-function makeAction () {
-	if (document.getElementsByTagName('h1')[1] != null){
-		if (titleIs('Hinter welchem Logo verstecken sich die Tickets?')) {
-			console.log('STEP: Memory')
-			var star = Math.floor(Math.random() * 12) + 2;
-			document.getElementsByTagName('img') [star].click();
-			setTimeout(makeAction, 1000)
-		} else if (titleIs('Leider verloren')) {
-			$('.lose button.game-button').trigger('click')
-			setTimeout(makeAction, 200)
-		}
-	}
-	else if ($('button#lose').length) {
-			$('button#lose').trigger('click')
-			console.clear()
-			setTimeout(makeAction, 200)
-	}
-	else {
-		answerQuestion()
-	}
+    function nextQuestion () {
+        $('button#next-question').trigger('click')
+        setTimeout(makeAction, randomNumber())
+    }
 
-}
+    function startGame () {
+        console.log('game starten')
+        $('.game-button').trigger('click');
+        setTimeout(answerQuestion, randomNumber())
+    }
 
-(function() {
-    'use strict';
+    function restartGame () {
+        console.log('restart')
+        $('button#lose').trigger('click');
+        setTimeout(makeAction, randomNumber())
+    }
 
-    console.log('starting...')
-    makeAction()
-})();
+    function selectBubble () {
+        console.log('bubble auswählen')
+        document.getElementsByTagName('img')[2].click();
+        setTimeout(makeAction, randomNumber())
+    }
+
+    function decisionTicket () {
+        console.log('sagen dass tickets gewinnen')
+        document.getElementsByTagName('img')[2].click();
+        setTimeout(selectBubble, randomNumber())
+    }
+
+    function answerQuestion () {
+        let curr = currentQuestion()
+        console.log(curr, questions[curr])
+        $('#answers .answer-wrapper').each((i, el) => {
+            if ($(el).children('label').html() === questions[curr]) {
+                $(el).children('input').trigger('click')
+            }
+        })
+        setTimeout(nextQuestion, randomNumber()) //speed
+    }
+
+    function makeAction () {
+        if (document.getElementById('lose')){
+            restartGame()
+        } else if (document.getElementsByTagName('h3')[0].innerText == 'DU HAST DIE ERSTE HÜRDE GESCHAFFT.\nUM WELCHEN PREIS MÖCHTEST DU SPIELEN?'){
+            decisionTicket()
+        } else {
+            answerQuestion()
+        }
+    }
+
+    (function() {
+        'use strict';
+
+        console.log('starting...')
+        makeAction()
+    })();
+
+});
