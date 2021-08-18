@@ -51,7 +51,7 @@ $(document).ready(function() {
     }
 
     function randomNumber () {
-        return Math.floor(Math.random() * (1000 - 750 + 1)) + 1000;
+        return Math.floor(Math.random() * (900 - 750 + 1)) + 900; //speed
     }
 
     function currentQuestion () {
@@ -97,7 +97,7 @@ $(document).ready(function() {
                 $(el).children('input').trigger('click')
             }
         })
-        setTimeout(nextQuestion, randomNumber()) //speed
+        setTimeout(nextQuestion, randomNumber())
     }
 
     function makeAction () {
@@ -105,6 +105,8 @@ $(document).ready(function() {
             restartGame()
         } else if (document.getElementsByTagName('h3')[0].innerText == 'DU HAST DIE ERSTE HÜRDE GESCHAFFT.\nUM WELCHEN PREIS MÖCHTEST DU SPIELEN?'){
             decisionTicket()
+        } else if (document.getElementById('verification')){
+            startGame()
         } else {
             answerQuestion()
         }
