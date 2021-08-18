@@ -2,7 +2,7 @@
 // @name         Energy Air 2021 Game Bot
 // @namespace    https://github.com/ggmanugg/energyair_bot/blob/master/energyairbot.user.js
 // @version      0.2
-// @description  Win tickets for the Energy Air 2019 automatically
+// @description  Win tickets for the Energy Air 2021
 // @author       ggmanugg: https://github.com/ggmanugg
 // @match        game.energy.ch/
 // @run-at       document-end
