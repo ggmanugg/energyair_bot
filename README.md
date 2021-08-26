@@ -1,4 +1,4 @@
-# UPDATE: Energy Air 2021 Game Bot
+# Energy Air 2021 Game Bot with reCAPTCHA bypass
 
 Use the Tampermonkey Addon for Google Chrome: https://tampermonkey.net/
 
