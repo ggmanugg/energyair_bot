@@ -120,6 +120,8 @@ $(document).ready(function() {
             startGame()
         } else if (document.querySelector('.question-number')){
             answerQuestion()
+        } else if (document.getElementById('win-game')){
+            alert('gewonnen!')
         } else {
             console.log('something went wrong')
             setTimeout(makeAction, 5000);
