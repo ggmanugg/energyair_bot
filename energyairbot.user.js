@@ -51,6 +51,7 @@ $(document).ready(function() {
     }
 
     i=0;
+    x=0;
 
     function randomNumber () {
         return Math.floor(Math.random() * (900 - 750 + 1)) + 900; //speed
@@ -117,14 +118,20 @@ $(document).ready(function() {
             }
         } else if (document.getElementById('verification')){
             i=0;
+            x=0;
             startGame()
         } else if (document.querySelector('.question-number')){
             answerQuestion()
         } else if (document.getElementById('win-game')){
             alert('gewonnen!')
         } else {
-            console.log('something went wrong')
-            setTimeout(makeAction, 5000);
+            x++;
+            console.log('something went wrong. versuch: '+ i);
+            if(x>50){
+                location.reload();
+            } else {
+                setTimeout(makeAction, 2000);
+            }
         }
     }
 
