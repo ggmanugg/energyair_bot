@@ -126,7 +126,7 @@ $(document).ready(function() {
             alert('gewonnen!')
         } else {
             x++;
-            console.log('something went wrong. versuch: '+ i);
+            console.log('something went wrong. versuch: '+ x);
             if(x>50){
                 location.reload();
             } else {
