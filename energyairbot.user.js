@@ -49,7 +49,9 @@ $(document).ready(function() {
         "WER WAR DER ÜBERRASCHUNGSACT AM ENERGY AIR 2018?":"Lo &amp; Leduc",
         "WIE HEISST DIE TRAM- UND BUSHALTESTELLE, WELCHE SICH DIREKT NEBEN DEM STADION WANKDORF BEFINDET?":"Wankdorf Center"
     }
-    
+
+    i=0;
+
     function randomNumber () {
         return Math.floor(Math.random() * (900 - 750 + 1)) + 900; //speed
     }
@@ -106,11 +108,17 @@ $(document).ready(function() {
         } else if (document.querySelector('.tickets')){
             decisionTicket()
         } else if (document.getElementById('g-recaptcha')){
-            console.log('warten auf recaptcha');
-            setTimeout(makeAction, 2000);
+            i++;
+            console.log('warten auf recaptcha. versuch: '+ i);
+            if(i>100){
+                location.reload();
+            } else {
+                setTimeout(makeAction, 2000);
+            }
         } else if (document.getElementById('verification')){
+            i=0;
             startGame()
-        } else if (document.querySelector('.question-number')) {
+        } else if (document.querySelector('.question-number')){
             answerQuestion()
         } else {
             console.log('something went wrong')
