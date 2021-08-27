@@ -49,7 +49,7 @@ $(document).ready(function() {
         "WER WAR DER ÜBERRASCHUNGSACT AM ENERGY AIR 2018?":"Lo &amp; Leduc",
         "WIE HEISST DIE TRAM- UND BUSHALTESTELLE, WELCHE SICH DIREKT NEBEN DEM STADION WANKDORF BEFINDET?":"Wankdorf Center"
     }
-
+    
     function randomNumber () {
         return Math.floor(Math.random() * (900 - 750 + 1)) + 900; //speed
     }
@@ -68,7 +68,7 @@ $(document).ready(function() {
     function startGame () {
         console.log('game starten')
         $('.game-button').trigger('click');
-        setTimeout(answerQuestion, randomNumber())
+        setTimeout(makeAction, randomNumber())
     }
 
     function restartGame () {
@@ -103,12 +103,18 @@ $(document).ready(function() {
     function makeAction () {
         if (document.getElementById('lose')){
             restartGame()
-        } else if (document.getElementsByTagName('h3')[0].innerText == 'DU HAST DIE ERSTE HÜRDE GESCHAFFT.\nUM WELCHEN PREIS MÖCHTEST DU SPIELEN?'){
+        } else if (document.querySelector('.tickets')){
             decisionTicket()
+        } else if (document.getElementById('g-recaptcha')){
+            console.log('warten auf recaptcha');
+            setTimeout(makeAction, 2000);
         } else if (document.getElementById('verification')){
             startGame()
-        } else {
+        } else if (document.querySelector('.question-number')) {
             answerQuestion()
+        } else {
+            console.log('something went wrong')
+            setTimeout(makeAction, 5000);
         }
     }
 
