@@ -110,7 +110,7 @@ $(document).ready(function() {
         } else if (document.getElementById('g-recaptcha')){
             i++;
             console.log('warten auf recaptcha. versuch: '+ i);
-            if(i>100){
+            if(i>50){
                 location.reload();
             } else {
                 setTimeout(makeAction, 2000);
