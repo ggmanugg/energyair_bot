@@ -9,10 +9,13 @@
 5. Visit [game.energy.ch](https://game.energy.ch)
 6. Now the bot should play the game automatically
 
+IMPORTANT: Solving more than a couple of reCAPTCHA challenges a day may lead to a temporary block.
 
 
 ## More Infos
 
 - With the Session Box Addon or in a private browser window you can play with multiple accounts at the same time. You need multiple accounts (with multiple phone numbers).
 
-Thanks to the people for the question update!
+Thanks to everyone for the question update!
+
+
