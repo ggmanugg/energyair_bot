@@ -54,7 +54,7 @@ $(document).ready(function() {
     x=0;
 
     function randomNumber () {
-        return Math.floor(Math.random() * (900 - 750 + 1)) + 900; //speed
+        return Math.floor(Math.random() * (1200 - 850 + 1)) + 1200; //speed
     }
 
     function currentQuestion () {
@@ -104,9 +104,13 @@ $(document).ready(function() {
     }
 
     function makeAction () {
+
+        var isDecisionTicket = document.getElementsByClassName('tickets');
+        var isAnswerQuestion = document.getElementsByClassName('question-number');
+
         if (document.getElementById('lose')){
             restartGame()
-        } else if (document.querySelector('.tickets')){
+        } else if (isDecisionTicket.length > 0){
             decisionTicket()
         } else if (document.getElementById('g-recaptcha')){
             i++;
@@ -120,15 +124,15 @@ $(document).ready(function() {
             i=0;
             x=0;
             startGame()
-        } else if (document.querySelector('.question-number')){
+        } else if (isAnswerQuestion.length > 0){
             answerQuestion()
         } else if (document.getElementById('win-game')){
             alert('gewonnen!')
         } else {
             x++;
-            console.log('something went wrong. versuch: '+ x);
+            console.log('etwas ist schief gelaufen. versuch: '+ x);
             if(x>50){
-                location.reload();
+                alert('bitte neu anmelden!')
             } else {
                 setTimeout(makeAction, 2000);
             }
