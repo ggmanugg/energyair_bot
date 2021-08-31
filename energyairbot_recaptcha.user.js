@@ -53,7 +53,7 @@ $(document).ready(function() {
     }
 
     function randomNumber () {
-        return Math.floor(Math.random() * (1200 - 850 + 1)) + 1200; //speed
+        return Math.floor(Math.random() * (1200 - 800 + 1)) + 1200; //speed
     }
 
     function currentQuestion () {
