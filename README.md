@@ -1,3 +1,6 @@
+# --deprecated--
+Vielleicht kommt dieses Jahr ein neuer Bot. Mal schauen, wie Energy das Game programmieren wird.
+
 # Energy Air 2021 Game Bot with reCAPTCHA bypass
 
 ## Installation
